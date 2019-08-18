@@ -68,6 +68,35 @@ func (s *SortUtil) InsertSort() {
 	}
 }
 
+func (s *SortUtil) QuickSort() {
+	quickSort(s.Sortable, 0, len(s.Sortable)-1)
+}
+
+func quickSort(arr []int, start, end int) {
+	if start < end {
+
+		standard := arr[start]
+		low := start
+		high := end
+
+		for low < high {
+			for low < high && standard <= arr[high] {
+				high--
+			}
+			arr[low] = high
+
+			for low < high && standard >= arr[low] {
+				low++
+			}
+			arr[high] = arr[low]
+		}
+		arr[low] = standard
+
+		quickSort(arr, start, low)
+		quickSort(arr, low+1, end)
+	}
+}
+
 func (s *SortUtil) print() {
 	fmt.Print("[")
 	for _, v := range s.Sortable {
