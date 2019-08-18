@@ -52,6 +52,7 @@ func (s *SortUtil) SelectSort() {
 	}
 }
 
+//类似while循环的写法
 func (s *SortUtil) InsertSort() {
 	arr := s.Sortable
 	for i := 1; i < len(arr); i++ {
@@ -64,6 +65,21 @@ func (s *SortUtil) InsertSort() {
 		}
 		if insertIndex+1 != i {
 			arr[insertIndex+1] = insertValue
+		}
+	}
+}
+
+//直接for循环的写法
+func (s *SortUtil) InsertSort2() {
+	arr := s.Sortable
+	for i := 1; i < len(arr); i++ {
+		if arr[i] < arr[i-1] {
+			temp := arr[i]
+			var j int
+			for j = i - 1; j >= 0 && temp < arr[j]; j-- {
+				arr[j+1] = arr[j]
+			}
+			arr[j+1] = temp
 		}
 	}
 }

@@ -29,3 +29,10 @@ func TestSortUtil_QuickSort(t *testing.T) {
 	sortUtil.QuickSort()
 	sortUtil.print()
 }
+
+func TestSortUtil_InsertSort2(t *testing.T) {
+	arr := []int{1, 5, 3, 7, 9, 8, 6, 2, 4}
+	sortUtil := NewSortUtil(arr)
+	sortUtil.InsertSort2()
+	sortUtil.print()
+}
